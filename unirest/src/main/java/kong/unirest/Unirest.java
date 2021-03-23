@@ -63,6 +63,15 @@ public class Unirest {
     }
 
     /**
+     * Start a GET HttpRequest which support a body from the primary config
+     * @param url the endpoint to access. Can include placeholders for path params using curly braces {}
+     * @return A HttpRequest builder
+     */
+    public static HttpRequestWithBody getWithBody(String url) {
+        return primaryInstance.getWithBody(url);
+    }
+
+    /**
      * Start a HEAD HttpRequest which does not support a body from the primary config
      * @param url the endpoint to access. Can include placeholders for path params using curly braces {}
      * @return A HttpRequest builder

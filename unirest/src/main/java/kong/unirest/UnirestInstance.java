@@ -76,6 +76,15 @@ public class UnirestInstance implements AutoCloseable {
     }
 
     /**
+     * Start a GET HttpRequest which support a body from the primary config
+     * @param url the endpoint to access. Can include placeholders for path params using curly braces {}
+     * @return A HttpRequest builder
+     */
+    public HttpRequestWithBody getWithBody(String url) {
+        return new HttpRequestBody(config, HttpMethod.GET, url);
+    }
+
+    /**
      * Start a HEAD HttpRequest which does not support a body from the primary config
      * @param url the endpoint to access. Can include placeholders for path params using curly braces {}
      * @return A HttpRequest builder

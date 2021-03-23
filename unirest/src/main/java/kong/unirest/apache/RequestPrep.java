@@ -26,6 +26,7 @@
 package kong.unirest.apache;
 
 import kong.unirest.*;
+import kong.unirest.apache.extend.HttpGetWithBody;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.*;
@@ -50,7 +51,7 @@ class RequestPrep {
 
     static {
         FACTORIES = new HashMap<>();
-        FACTORIES.put(HttpMethod.GET, HttpGet::new);
+        FACTORIES.put(HttpMethod.GET, HttpGetWithBody::new);
         FACTORIES.put(HttpMethod.POST, HttpPost::new);
         FACTORIES.put(HttpMethod.PUT, HttpPut::new);
         FACTORIES.put(HttpMethod.DELETE, ApacheDeleteWithBody::new);
